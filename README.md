@@ -8,7 +8,7 @@ Because it doesn't run as a daemon, *external scheduling is needed. *
 
 I personally use it together with [Jobber](https://dshearer.github.io/jobber/) to run once a minute. 
 
-##Installation
+## Installation
 (The way I use it)
 `go build charge-notifier.go && sudo cp charge-notifier /usr/bin/charge-notifier && charge-notifier`
 (build, install, test)
@@ -29,5 +29,5 @@ Add to $HOME/.jobber:
 
 `export DISPLAY=:0.0` is important for notify-send to reach the user's display when it's not run in the home shell. 
 
-###Background
+### Background
 This tool was made to scratch a personal itch to keep my laptop's battery health (because it makes liberal use of the safety margins & after more elaborate attempts failed) and to learn a bit about Go and Git. 
