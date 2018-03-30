@@ -13,8 +13,9 @@ I personally use it together with [Jobber](https://dshearer.github.io/jobber/) t
 `go build charge-notifier.go && sudo cp charge-notifier /usr/bin/charge-notifier && charge-notifier`
 (build, install, test)
 
-Add to $HOME/.jobber: 
+[Install Jobber](https://dshearer.github.io/jobber/doc/v1.3/#deployment)
 
+Add to $HOME/.jobber: 
 ```
 [jobs]
 - name: ChargeNotifier
