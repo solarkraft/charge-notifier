@@ -23,9 +23,9 @@ Add to $HOME/.jobber:
   cmd: export DISPLAY=:0.0 && /usr/bin/charge-notifier  # shell command to execute
   time: '10 * * * * *'  # SEC MIN HOUR MONTH_DAY MONTH WEEK_DAY.
   onError: Continue  # what to do when the job has an error: Stop, Backoff, or     Continue
-  notifyOnError: true  # whether to call notifyProgram when the job has an error
+  notifyOnError: false  # whether to call notifyProgram when the job has an error
   notifyOnFailure: true  # whether to call notifyProgram when the job stops due to   errors
-  notifyOnSuccess: true  # whether to call notifyProgram when the job succeeds
+  notifyOnSuccess: false  # whether to call notifyProgram when the job succeeds
 
 ```
 
