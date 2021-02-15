@@ -10,26 +10,20 @@ I personally use it together with [Jobber](https://dshearer.github.io/jobber/) t
 
 ## Installation
 (The way I use it)
-`go build charge-notifier.go && sudo cp charge-notifier /usr/bin/charge-notifier && charge-notifier`
 
-(build, install, test)
-
-[Install Jobber](https://dshearer.github.io/jobber/doc/v1.3/#deployment)
-
-Add to $HOME/.jobber: 
-```
-[jobs]
-- name: ChargeNotifier
-  cmd: export DISPLAY=:0.0 && /usr/bin/charge-notifier  # shell command to execute
-  time: '10 * * * * *'  # SEC MIN HOUR MONTH_DAY MONTH WEEK_DAY.
-  onError: Continue  # what to do when the job has an error: Stop, Backoff, or     Continue
-  notifyOnError: false  # whether to call notifyProgram when the job has an error
-  notifyOnFailure: true  # whether to call notifyProgram when the job stops due to   errors
-  notifyOnSuccess: false  # whether to call notifyProgram when the job succeeds
+Build & copy to the bin folder
 
 ```
+go build charge-notifier.go
+cp charge-notifier $HOME/.local/bin/
+```
 
-`export DISPLAY=:0.0` is important for notify-send to reach the user's display when it's not run in the home shell. 
+Deploy as a systemd user service
+
+```
+cp charge-notifier.service $HOME/.config/systemd/user/
+systemctl --user enable --now charge-notifier
+```
 
 ### Background
 This tool was made to scratch a personal itch to keep my laptop's battery health (because it makes liberal use of the safety margins & after more elaborate attempts failed) and to learn a bit about Go and Git. 
