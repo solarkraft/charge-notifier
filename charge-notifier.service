@@ -1,0 +1,11 @@
+[Unit]
+Description="Remember to care for your battery"
+
+[Service]
+Environment="WAYLAND_DISPLAY=wayland-1"
+ExecStart=/bin/env sh -c "exec $HOME/.local/bin/charge-notifier"
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
