@@ -1,11 +1,10 @@
-//
-
 package main
 
 import (
 	"github.com/0xAX/notificator"
 	"github.com/distatus/battery"
 	"fmt"
+	"math"
 )
 
 var notify *notificator.Notificator
@@ -18,16 +17,17 @@ func main() {
 
 	notify = notificator.New(notificator.Options { DefaultIcon: "battery", AppName: "SoftBattSaver" })
 
-	batteries, err := battery.GetAll()
-	if err != nil {
-		fmt.Println("Could not get battery info!")
-		return
-	}
+	batteries, _ := battery.GetAll()
 
-	for _, battery := range batteries {
-
+	for i, battery := range batteries {
+		fmt.Println("--- Battery", i)
 		battCharge := battery.Current/battery.Full
-		fmt.Println("Battery charge: ", battCharge)
+		if math.IsNaN(battCharge) {
+			fmt.Println("error")
+			break
+		}
+
+		fmt.Println("Charge: ", battCharge)
 
 		state := battery.State
 		//State 4: Discharging
