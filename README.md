@@ -1,12 +1,6 @@
 # charge-notifier
 
-Helps you keep all your integrated batteries healthy by keeping them between set charge thresholds (Default: 0.2 & 0.8) by giving you a notification when they're not every time it's run. 
-
-Made with Linux in mind, but theoretically cross-platform compatible. 
-
-Because it doesn't run as a daemon, *external scheduling is needed. *
-
-I personally use it together with [Jobber](https://dshearer.github.io/jobber/) to run once a minute. 
+Helps you keep all your integrated batteries healthy by keeping them between set charge thresholds (Default: 0.2 & 0.8) by giving you a notification when they're not every time it's run. Auto-suspends (default: at 0.05) using `systemctl suspend`. 
 
 ## Installation
 (The way I use it)
